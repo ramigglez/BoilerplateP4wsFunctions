@@ -140,6 +140,8 @@ function focuspocus($genesis,$block = 0) {
         $html = explode('  ',$genesis->data);
 
         echo html_entity_decode($html[0]);
+    }else if($block === 1){
+        return $genesis;
     }else{
         echo $genesis;
     }
@@ -372,4 +374,18 @@ function article ( string|array $title, string|array $text, string $image, strin
         ],$linkTxt)
     ]);
 
+}
+
+function genesis ($genesis) {
+    $json = focuspocus($genesis,1);//obtener el bloque genesis en formato json
+    $theChain = new _3bp($json);#Establecer el bloque 0 (genesis)
+    return $theChain;
+}
+
+function showChain ($tc) {
+    echo $tc->chain();
+}
+
+function theBlock ($block) {
+    focuspocus($block,2);
 }
