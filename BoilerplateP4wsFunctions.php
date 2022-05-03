@@ -389,3 +389,7 @@ function showChain ($tc) {
 function theBlock ($block) {
     focuspocus($block,2);
 }
+
+function runHtml ($html) {
+    echo html_entity_decode($html);
+}
